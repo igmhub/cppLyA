@@ -1,0 +1,21 @@
+# -*- mode: python; -*- 
+from waflib import Context
+
+def build(bld):
+    
+    lib_sources = bld.path.ant_glob( '*.F' )+bld.path.ant_glob( '*.cc' )
+    lib_headers = bld.path.ant_glob( '*.h' )
+    
+    lib = bld.shlib(
+        name = 'baolib', 
+        source   = lib_sources, 
+        target   = 'baolib', 
+        includes = ['.','../'], 
+        lib = bld.env.LIB,
+        use   = ['LAPACK', 'CFITSIO'],
+        linkflags = ['-fopenmp','-lgomp'], # THIS SHOULD BE SET AUTMATICALLY BY LINKFLAGS
+        vnum     = Context.g_module.VERSION)
+    lib.rpath = [bld.env.PREFIX + '/lib',bld.env.LIBPATH_CFITSIO[0] ]
+    bld.install_files( '${PREFIX}/${PKG_INCDIR}', lib_headers )
+    
+    

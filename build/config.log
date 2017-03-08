@@ -1,0 +1,620 @@
+# project bao (0.1.0) configured on Wed Mar  8 11:31:23 2017 by
+# waf 1.6.3 (abi 98, python 20706f0 on linux2)
+# using ./waf configure --prefix=/home/vserret/software/cppLyA
+#
+----------------------------------------
+Setting top to
+/home/vserret/software/cppLyA
+----------------------------------------
+Setting out to
+/home/vserret/software/cppLyA/build
+----------------------------------------
+Checking for 'gcc' (c compiler)
+find program=['gcc', 'cc'] paths=['/home/frogshome/bin', '/home/vserret/software/busca_pyLyA/bin', '/home/vserret/software/pyLyA/fit/bin', '/home/guy/software/baofit/bin', '/home/vserret/software/baoutil/bin', '/home/vserret/software/baocorr/bin', '/home/vserret/software/baocorr/py', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games'] var='CC' -> '/usr/bin/gcc'
+find program=['ar'] paths=['/home/frogshome/bin', '/home/vserret/software/busca_pyLyA/bin', '/home/vserret/software/pyLyA/fit/bin', '/home/guy/software/baofit/bin', '/home/vserret/software/baoutil/bin', '/home/vserret/software/baocorr/bin', '/home/vserret/software/baocorr/py', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games'] var='AR' -> '/usr/bin/ar'
+ok
+----------------------------------------
+Checking for 'g++' (c++ compiler)
+find program=['g++', 'c++'] paths=['/home/frogshome/bin', '/home/vserret/software/busca_pyLyA/bin', '/home/vserret/software/pyLyA/fit/bin', '/home/guy/software/baofit/bin', '/home/vserret/software/baoutil/bin', '/home/vserret/software/baocorr/bin', '/home/vserret/software/baocorr/py', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games'] var='CXX' -> '/usr/bin/g++'
+(tool ar is already loaded, skipping)
+ok
+------------------------------------------
+Checking for 'gfortran' (fortran compiler)
+find program=['gfortran'] paths=['/home/frogshome/bin', '/home/vserret/software/busca_pyLyA/bin', '/home/vserret/software/pyLyA/fit/bin', '/home/guy/software/baofit/bin', '/home/vserret/software/baoutil/bin', '/home/vserret/software/baocorr/bin', '/home/vserret/software/baocorr/py', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games'] var='FC' -> '/usr/bin/gfortran'
+find program=['ar'] paths='' var='AR' -> '/usr/bin/ar'
+ok
+------------------------------------------
+Compiling a simple fortran app
+==>
+        program main
+        end     program main
+
+<==
+[1/2] [32mfc: build/.conf_check_19a4f6bb1e3e434c56b6204b1e2b2657/test.f -> build/.conf_check_19a4f6bb1e3e434c56b6204b1e2b2657/testbuild/test.f.0.o
+[0m
+['/usr/bin/gfortran', '-c', '-o', '/home/vserret/software/cppLyA/build/.conf_check_19a4f6bb1e3e434c56b6204b1e2b2657/testbuild/test.f.0.o', '/home/vserret/software/cppLyA/build/.conf_check_19a4f6bb1e3e434c56b6204b1e2b2657/test.f']
+[2/2] [33mfcprogram: build/.conf_check_19a4f6bb1e3e434c56b6204b1e2b2657/testbuild/test.f.0.o -> build/.conf_check_19a4f6bb1e3e434c56b6204b1e2b2657/testbuild/testprog
+[0m
+['/usr/bin/gfortran', 'test.f.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+yes
+------------------------------------------
+fortran link verbose flag
+==>
+        PROGRAM MAIN
+        END
+
+<==
+[1/2] [32mfc: build/.conf_check_ad76e8609545884f267d581d69469b48/test.f -> build/.conf_check_ad76e8609545884f267d581d69469b48/testbuild/test.f.0.o
+[0m
+['/usr/bin/gfortran', '-c', '-o', '/home/vserret/software/cppLyA/build/.conf_check_ad76e8609545884f267d581d69469b48/testbuild/test.f.0.o', '/home/vserret/software/cppLyA/build/.conf_check_ad76e8609545884f267d581d69469b48/test.f']
+[2/2] [33mfcprogram_test: build/.conf_check_ad76e8609545884f267d581d69469b48/testbuild/test.f.0.o -> build/.conf_check_ad76e8609545884f267d581d69469b48/testbuild/testprog
+[0m
+command: ['/usr/bin/gfortran', 'test.f.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-v']
+
+['/usr/bin/gfortran', 'test.f.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-v']
+err: Driving: /usr/bin/gfortran test.f.0.o -o testprog -Wl,-Bstatic -Wl,-Bdynamic -v -l gfortran -l m -shared-libgcc
+Using built-in specs.
+COLLECT_GCC=/usr/bin/gfortran
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.3' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) 
+Reading specs from /usr/lib/gcc/x86_64-linux-gnu/4.8/libgfortran.spec
+rename spec lib to liborig
+COLLECT_GCC_OPTIONS='-o' 'testprog' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-o' 'testprog' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o testprog /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. test.f.0.o -Bstatic -Bdynamic -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+
+err: Driving: /usr/bin/gfortran test.f.0.o -o testprog -Wl,-Bstatic -Wl,-Bdynamic -v -l gfortran -l m -shared-libgcc
+Using built-in specs.
+COLLECT_GCC=/usr/bin/gfortran
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.3' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) 
+Reading specs from /usr/lib/gcc/x86_64-linux-gnu/4.8/libgfortran.spec
+rename spec lib to liborig
+COLLECT_GCC_OPTIONS='-o' 'testprog' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-o' 'testprog' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o testprog /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. test.f.0.o -Bstatic -Bdynamic -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+
+
+-v
+------------------------------------------
+Getting fortran runtime link flags
+==>
+        PROGRAM MAIN
+        END
+
+<==
+[1/2] [32mfc: build/.conf_check_ad76e8609545884f267d581d69469b48/test.f -> build/.conf_check_ad76e8609545884f267d581d69469b48/testbuild/test.f.0.o
+[0m
+['/usr/bin/gfortran', '-c', '-o', '/home/vserret/software/cppLyA/build/.conf_check_ad76e8609545884f267d581d69469b48/testbuild/test.f.0.o', '/home/vserret/software/cppLyA/build/.conf_check_ad76e8609545884f267d581d69469b48/test.f']
+[2/2] [33mfcprogram_test: build/.conf_check_ad76e8609545884f267d581d69469b48/testbuild/test.f.0.o -> build/.conf_check_ad76e8609545884f267d581d69469b48/testbuild/testprog
+[0m
+command: ['/usr/bin/gfortran', 'test.f.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-v']
+
+['/usr/bin/gfortran', 'test.f.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-v']
+err: Driving: /usr/bin/gfortran test.f.0.o -o testprog -Wl,-Bstatic -Wl,-Bdynamic -v -l gfortran -l m -shared-libgcc
+Using built-in specs.
+COLLECT_GCC=/usr/bin/gfortran
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.3' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) 
+Reading specs from /usr/lib/gcc/x86_64-linux-gnu/4.8/libgfortran.spec
+rename spec lib to liborig
+COLLECT_GCC_OPTIONS='-o' 'testprog' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-o' 'testprog' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o testprog /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. test.f.0.o -Bstatic -Bdynamic -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+
+err: Driving: /usr/bin/gfortran test.f.0.o -o testprog -Wl,-Bstatic -Wl,-Bdynamic -v -l gfortran -l m -shared-libgcc
+Using built-in specs.
+COLLECT_GCC=/usr/bin/gfortran
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/4.8/lto-wrapper
+Target: x86_64-linux-gnu
+Configured with: ../src/configure -v --with-pkgversion='Ubuntu 4.8.4-2ubuntu1~14.04.3' --with-bugurl=file:///usr/share/doc/gcc-4.8/README.Bugs --enable-languages=c,c++,java,go,d,fortran,objc,obj-c++ --prefix=/usr --program-suffix=-4.8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --with-gxx-include-dir=/usr/include/c++/4.8 --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --enable-gnu-unique-object --disable-libmudflap --enable-plugin --with-system-zlib --disable-browser-plugin --enable-java-awt=gtk --enable-gtk-cairo --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64/jre --enable-java-home --with-jvm-root-dir=/usr/lib/jvm/java-1.5.0-gcj-4.8-amd64 --with-jvm-jar-dir=/usr/lib/jvm-exports/java-1.5.0-gcj-4.8-amd64 --with-arch-directory=amd64 --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --enable-objc-gc --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --with-tune=generic --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+Thread model: posix
+gcc version 4.8.4 (Ubuntu 4.8.4-2ubuntu1~14.04.3) 
+Reading specs from /usr/lib/gcc/x86_64-linux-gnu/4.8/libgfortran.spec
+rename spec lib to liborig
+COLLECT_GCC_OPTIONS='-o' 'testprog' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/4.8/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-o' 'testprog' '-v' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/collect2 --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o testprog /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/4.8/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. test.f.0.o -Bstatic -Bdynamic -lgfortran -lm -lgcc_s -lgcc -lquadmath -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/4.8/crtend.o /usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crtn.o
+
+
+ok (-Lrelro -L/usr/lib/gcc/x86_64-linux-gnu/4.8 -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/4.8/../../.. -lgfortran -lm -lquadmath -lm)
+------------------------------------------
+Detecting whether we need a dummy main
+==>
+int MAIN__() { return 0; }
+
+<==
+[1/2] [32mc: build/.conf_check_81e0598c8554785db2d64cd5f8a9c706/test.c -> build/.conf_check_81e0598c8554785db2d64cd5f8a9c706/testbuild/test.c.0.o
+[0m
+['/usr/bin/gcc', '-fPIC', '-DPIC', '../test.c', '-c', '-o', 'test.c.0.o']
+[2/2] [33mfcprogram: build/.conf_check_81e0598c8554785db2d64cd5f8a9c706/testbuild/test.c.0.o -> build/.conf_check_81e0598c8554785db2d64cd5f8a9c706/testbuild/testprog
+[0m
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+err: /usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 0 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 1 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 2 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 3 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 4 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 5 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 6 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 7 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 8 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 9 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 10 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 11 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 12 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 13 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 14 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 15 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 16 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 17 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 18 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 19 has invalid symbol index 21
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_line): relocation 0 has invalid symbol index 2
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+
+from /home/vserret/software/cppLyA: Test does not build: Traceback (most recent call last):
+  File "/home/vserret/software/cppLyA/.waf-1.6.3-3c3129a3ec8fb4a5bbc7ba3161463b22/waflib/Tools/c_config.py", line 435, in run_c_code
+    bld.compile()
+  File "/home/vserret/software/cppLyA/.waf-1.6.3-3c3129a3ec8fb4a5bbc7ba3161463b22/waflib/Build.py", line 193, in compile
+    raise Errors.BuildError(self.producer.error)
+BuildError: Build failed
+ -> task failed (exit status 1): 
+	{task 140388859260688: fcprogram test.c.0.o -> testprog}
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+
+from /home/vserret/software/cppLyA: The configuration failed
+==>
+int __MAIN() { return 0; }
+
+<==
+[1/2] [32mc: build/.conf_check_7e9ad7c1e72a2645c44a4b9c0fd95424/test.c -> build/.conf_check_7e9ad7c1e72a2645c44a4b9c0fd95424/testbuild/test.c.0.o
+[0m
+['/usr/bin/gcc', '-fPIC', '-DPIC', '../test.c', '-c', '-o', 'test.c.0.o']
+[2/2] [33mfcprogram: build/.conf_check_7e9ad7c1e72a2645c44a4b9c0fd95424/testbuild/test.c.0.o -> build/.conf_check_7e9ad7c1e72a2645c44a4b9c0fd95424/testbuild/testprog
+[0m
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+err: /usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 0 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 1 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 2 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 3 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 4 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 5 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 6 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 7 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 8 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 9 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 10 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 11 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 12 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 13 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 14 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 15 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 16 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 17 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 18 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 19 has invalid symbol index 21
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_line): relocation 0 has invalid symbol index 2
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+
+from /home/vserret/software/cppLyA: Test does not build: Traceback (most recent call last):
+  File "/home/vserret/software/cppLyA/.waf-1.6.3-3c3129a3ec8fb4a5bbc7ba3161463b22/waflib/Tools/c_config.py", line 435, in run_c_code
+    bld.compile()
+  File "/home/vserret/software/cppLyA/.waf-1.6.3-3c3129a3ec8fb4a5bbc7ba3161463b22/waflib/Build.py", line 193, in compile
+    raise Errors.BuildError(self.producer.error)
+BuildError: Build failed
+ -> task failed (exit status 1): 
+	{task 140388858970832: fcprogram test.c.0.o -> testprog}
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+
+from /home/vserret/software/cppLyA: The configuration failed
+==>
+int _MAIN() { return 0; }
+
+<==
+[1/2] [32mc: build/.conf_check_895205341bdb2b5d858e7b1b9bbf7dfc/test.c -> build/.conf_check_895205341bdb2b5d858e7b1b9bbf7dfc/testbuild/test.c.0.o
+[0m
+['/usr/bin/gcc', '-fPIC', '-DPIC', '../test.c', '-c', '-o', 'test.c.0.o']
+[2/2] [33mfcprogram: build/.conf_check_895205341bdb2b5d858e7b1b9bbf7dfc/testbuild/test.c.0.o -> build/.conf_check_895205341bdb2b5d858e7b1b9bbf7dfc/testbuild/testprog
+[0m
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+err: /usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 0 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 1 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 2 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 3 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 4 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 5 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 6 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 7 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 8 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 9 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 10 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 11 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 12 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 13 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 14 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 15 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 16 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 17 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 18 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 19 has invalid symbol index 21
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_line): relocation 0 has invalid symbol index 2
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+
+from /home/vserret/software/cppLyA: Test does not build: Traceback (most recent call last):
+  File "/home/vserret/software/cppLyA/.waf-1.6.3-3c3129a3ec8fb4a5bbc7ba3161463b22/waflib/Tools/c_config.py", line 435, in run_c_code
+    bld.compile()
+  File "/home/vserret/software/cppLyA/.waf-1.6.3-3c3129a3ec8fb4a5bbc7ba3161463b22/waflib/Build.py", line 193, in compile
+    raise Errors.BuildError(self.producer.error)
+BuildError: Build failed
+ -> task failed (exit status 1): 
+	{task 140388859260304: fcprogram test.c.0.o -> testprog}
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+
+from /home/vserret/software/cppLyA: The configuration failed
+==>
+int MAIN_() { return 0; }
+
+<==
+[1/2] [32mc: build/.conf_check_c181ae8dfdd4466c692d46027a7e39cc/test.c -> build/.conf_check_c181ae8dfdd4466c692d46027a7e39cc/testbuild/test.c.0.o
+[0m
+['/usr/bin/gcc', '-fPIC', '-DPIC', '../test.c', '-c', '-o', 'test.c.0.o']
+[2/2] [33mfcprogram: build/.conf_check_c181ae8dfdd4466c692d46027a7e39cc/testbuild/test.c.0.o -> build/.conf_check_c181ae8dfdd4466c692d46027a7e39cc/testbuild/testprog
+[0m
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+err: /usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 0 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 1 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 2 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 3 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 4 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 5 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 6 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 7 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 8 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 9 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 10 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 11 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 12 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 13 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 14 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 15 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 16 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 17 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 18 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 19 has invalid symbol index 21
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_line): relocation 0 has invalid symbol index 2
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+
+from /home/vserret/software/cppLyA: Test does not build: Traceback (most recent call last):
+  File "/home/vserret/software/cppLyA/.waf-1.6.3-3c3129a3ec8fb4a5bbc7ba3161463b22/waflib/Tools/c_config.py", line 435, in run_c_code
+    bld.compile()
+  File "/home/vserret/software/cppLyA/.waf-1.6.3-3c3129a3ec8fb4a5bbc7ba3161463b22/waflib/Build.py", line 193, in compile
+    raise Errors.BuildError(self.producer.error)
+BuildError: Build failed
+ -> task failed (exit status 1): 
+	{task 140388858971216: fcprogram test.c.0.o -> testprog}
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+
+from /home/vserret/software/cppLyA: The configuration failed
+==>
+int MAIN() { return 0; }
+
+<==
+[1/2] [32mc: build/.conf_check_d9293b3ea00b16ca313ea02a69ad6669/test.c -> build/.conf_check_d9293b3ea00b16ca313ea02a69ad6669/testbuild/test.c.0.o
+[0m
+['/usr/bin/gcc', '-fPIC', '-DPIC', '../test.c', '-c', '-o', 'test.c.0.o']
+[2/2] [33mfcprogram: build/.conf_check_d9293b3ea00b16ca313ea02a69ad6669/testbuild/test.c.0.o -> build/.conf_check_d9293b3ea00b16ca313ea02a69ad6669/testbuild/testprog
+[0m
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+err: /usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 0 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 1 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 2 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 3 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 4 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 5 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 6 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 7 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 8 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 9 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 10 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 11 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 12 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 13 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 14 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 15 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 16 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 17 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 18 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 19 has invalid symbol index 21
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_line): relocation 0 has invalid symbol index 2
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+
+from /home/vserret/software/cppLyA: Test does not build: Traceback (most recent call last):
+  File "/home/vserret/software/cppLyA/.waf-1.6.3-3c3129a3ec8fb4a5bbc7ba3161463b22/waflib/Tools/c_config.py", line 435, in run_c_code
+    bld.compile()
+  File "/home/vserret/software/cppLyA/.waf-1.6.3-3c3129a3ec8fb4a5bbc7ba3161463b22/waflib/Build.py", line 193, in compile
+    raise Errors.BuildError(self.producer.error)
+BuildError: Build failed
+ -> task failed (exit status 1): 
+	{task 140388858972112: fcprogram test.c.0.o -> testprog}
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+
+from /home/vserret/software/cppLyA: The configuration failed
+==>
+int main__() { return 0; }
+
+<==
+[1/2] [32mc: build/.conf_check_10563003f8382c2b70fa6de5b5a1f0ce/test.c -> build/.conf_check_10563003f8382c2b70fa6de5b5a1f0ce/testbuild/test.c.0.o
+[0m
+['/usr/bin/gcc', '-fPIC', '-DPIC', '../test.c', '-c', '-o', 'test.c.0.o']
+[2/2] [33mfcprogram: build/.conf_check_10563003f8382c2b70fa6de5b5a1f0ce/testbuild/test.c.0.o -> build/.conf_check_10563003f8382c2b70fa6de5b5a1f0ce/testbuild/testprog
+[0m
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+err: /usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 0 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 1 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 2 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 3 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 4 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 5 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 6 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 7 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 8 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 9 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 10 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 11 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 12 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 13 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 14 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 15 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 16 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 17 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 18 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 19 has invalid symbol index 21
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_line): relocation 0 has invalid symbol index 2
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+
+from /home/vserret/software/cppLyA: Test does not build: Traceback (most recent call last):
+  File "/home/vserret/software/cppLyA/.waf-1.6.3-3c3129a3ec8fb4a5bbc7ba3161463b22/waflib/Tools/c_config.py", line 435, in run_c_code
+    bld.compile()
+  File "/home/vserret/software/cppLyA/.waf-1.6.3-3c3129a3ec8fb4a5bbc7ba3161463b22/waflib/Build.py", line 193, in compile
+    raise Errors.BuildError(self.producer.error)
+BuildError: Build failed
+ -> task failed (exit status 1): 
+	{task 140388858973136: fcprogram test.c.0.o -> testprog}
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+
+from /home/vserret/software/cppLyA: The configuration failed
+==>
+int __main() { return 0; }
+
+<==
+[1/2] [32mc: build/.conf_check_92b269b0b8b8ccbbbbba7dafc5e4852a/test.c -> build/.conf_check_92b269b0b8b8ccbbbbba7dafc5e4852a/testbuild/test.c.0.o
+[0m
+['/usr/bin/gcc', '-fPIC', '-DPIC', '../test.c', '-c', '-o', 'test.c.0.o']
+[2/2] [33mfcprogram: build/.conf_check_92b269b0b8b8ccbbbbba7dafc5e4852a/testbuild/test.c.0.o -> build/.conf_check_92b269b0b8b8ccbbbbba7dafc5e4852a/testbuild/testprog
+[0m
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+err: /usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 0 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 1 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 2 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 3 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 4 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 5 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 6 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 7 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 8 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 9 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 10 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 11 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 12 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 13 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 14 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 15 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 16 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 17 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 18 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 19 has invalid symbol index 21
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_line): relocation 0 has invalid symbol index 2
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+
+from /home/vserret/software/cppLyA: Test does not build: Traceback (most recent call last):
+  File "/home/vserret/software/cppLyA/.waf-1.6.3-3c3129a3ec8fb4a5bbc7ba3161463b22/waflib/Tools/c_config.py", line 435, in run_c_code
+    bld.compile()
+  File "/home/vserret/software/cppLyA/.waf-1.6.3-3c3129a3ec8fb4a5bbc7ba3161463b22/waflib/Build.py", line 193, in compile
+    raise Errors.BuildError(self.producer.error)
+BuildError: Build failed
+ -> task failed (exit status 1): 
+	{task 140388858974160: fcprogram test.c.0.o -> testprog}
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+
+from /home/vserret/software/cppLyA: The configuration failed
+==>
+int _main() { return 0; }
+
+<==
+[1/2] [32mc: build/.conf_check_fdc233b5c475867e8f2355ab8f7d7e2f/test.c -> build/.conf_check_fdc233b5c475867e8f2355ab8f7d7e2f/testbuild/test.c.0.o
+[0m
+['/usr/bin/gcc', '-fPIC', '-DPIC', '../test.c', '-c', '-o', 'test.c.0.o']
+[2/2] [33mfcprogram: build/.conf_check_fdc233b5c475867e8f2355ab8f7d7e2f/testbuild/test.c.0.o -> build/.conf_check_fdc233b5c475867e8f2355ab8f7d7e2f/testbuild/testprog
+[0m
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+err: /usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 0 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 1 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 2 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 3 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 4 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 5 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 6 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 7 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 8 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 9 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 10 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 11 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 12 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 13 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 14 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 15 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 16 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 17 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 18 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 19 has invalid symbol index 21
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_line): relocation 0 has invalid symbol index 2
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+
+from /home/vserret/software/cppLyA: Test does not build: Traceback (most recent call last):
+  File "/home/vserret/software/cppLyA/.waf-1.6.3-3c3129a3ec8fb4a5bbc7ba3161463b22/waflib/Tools/c_config.py", line 435, in run_c_code
+    bld.compile()
+  File "/home/vserret/software/cppLyA/.waf-1.6.3-3c3129a3ec8fb4a5bbc7ba3161463b22/waflib/Build.py", line 193, in compile
+    raise Errors.BuildError(self.producer.error)
+BuildError: Build failed
+ -> task failed (exit status 1): 
+	{task 140388858972752: fcprogram test.c.0.o -> testprog}
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+
+from /home/vserret/software/cppLyA: The configuration failed
+==>
+int main_() { return 0; }
+
+<==
+[1/2] [32mc: build/.conf_check_9fcba387f21205fc4cd023d49832f949/test.c -> build/.conf_check_9fcba387f21205fc4cd023d49832f949/testbuild/test.c.0.o
+[0m
+['/usr/bin/gcc', '-fPIC', '-DPIC', '../test.c', '-c', '-o', 'test.c.0.o']
+[2/2] [33mfcprogram: build/.conf_check_9fcba387f21205fc4cd023d49832f949/testbuild/test.c.0.o -> build/.conf_check_9fcba387f21205fc4cd023d49832f949/testbuild/testprog
+[0m
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+err: /usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 0 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 1 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 2 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 3 has invalid symbol index 2
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 4 has invalid symbol index 11
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 5 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 6 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 7 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 8 has invalid symbol index 12
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 9 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 10 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 11 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 12 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 13 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 14 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 15 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 16 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 17 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 18 has invalid symbol index 13
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_info): relocation 19 has invalid symbol index 21
+/usr/bin/ld: /usr/lib/debug/usr/lib/x86_64-linux-gnu/crt1.o(.debug_line): relocation 0 has invalid symbol index 2
+/usr/lib/gcc/x86_64-linux-gnu/4.8/../../../x86_64-linux-gnu/crt1.o: In function `_start':
+(.text+0x20): undefined reference to `main'
+collect2: error: ld returned 1 exit status
+
+from /home/vserret/software/cppLyA: Test does not build: Traceback (most recent call last):
+  File "/home/vserret/software/cppLyA/.waf-1.6.3-3c3129a3ec8fb4a5bbc7ba3161463b22/waflib/Tools/c_config.py", line 435, in run_c_code
+    bld.compile()
+  File "/home/vserret/software/cppLyA/.waf-1.6.3-3c3129a3ec8fb4a5bbc7ba3161463b22/waflib/Build.py", line 193, in compile
+    raise Errors.BuildError(self.producer.error)
+BuildError: Build failed
+ -> task failed (exit status 1): 
+	{task 140388859259920: fcprogram test.c.0.o -> testprog}
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+
+from /home/vserret/software/cppLyA: The configuration failed
+==>
+int main() { return 0; }
+
+<==
+[1/2] [32mc: build/.conf_check_66371f57b453509ee96a3a331e7a2820/test.c -> build/.conf_check_66371f57b453509ee96a3a331e7a2820/testbuild/test.c.0.o
+[0m
+['/usr/bin/gcc', '-fPIC', '-DPIC', '../test.c', '-c', '-o', 'test.c.0.o']
+[2/2] [33mfcprogram: build/.conf_check_66371f57b453509ee96a3a331e7a2820/testbuild/test.c.0.o -> build/.conf_check_66371f57b453509ee96a3a331e7a2820/testbuild/testprog
+[0m
+['/usr/bin/gfortran', 'test.c.0.o', '-o', 'testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+yes main
+------------------------------------------
+Getting fortran mangling scheme
+==>
+
+int main() {
+	return 0;
+}
+
+<==
+[2/6] [01;34mmain.c:  -> build/.conf_check_1fe3b6a8c7710fefd9a0adc9b0e19d25/testbuild/main.c
+[0m
+[2/6] [01;34mtest.f:  -> build/.conf_check_1fe3b6a8c7710fefd9a0adc9b0e19d25/testbuild/test.f
+[0m
+[3/6] [32mc: build/.conf_check_1fe3b6a8c7710fefd9a0adc9b0e19d25/testbuild/main.c -> build/.conf_check_1fe3b6a8c7710fefd9a0adc9b0e19d25/testbuild/main.c.4.o
+[0m
+['/usr/bin/gcc', '-fPIC', '-DPIC', 'main.c', '-c', '-o', 'main.c.4.o']
+[4/6] [32mfc: build/.conf_check_1fe3b6a8c7710fefd9a0adc9b0e19d25/testbuild/test.f -> build/.conf_check_1fe3b6a8c7710fefd9a0adc9b0e19d25/testbuild/test.f.3.o
+[0m
+['/usr/bin/gfortran', '-c', '-o', '/home/vserret/software/cppLyA/build/.conf_check_1fe3b6a8c7710fefd9a0adc9b0e19d25/testbuild/test.f.3.o', '/home/vserret/software/cppLyA/build/.conf_check_1fe3b6a8c7710fefd9a0adc9b0e19d25/testbuild/test.f']
+[5/6] [33mfcstlib: build/.conf_check_1fe3b6a8c7710fefd9a0adc9b0e19d25/testbuild/test.f.3.o -> build/.conf_check_1fe3b6a8c7710fefd9a0adc9b0e19d25/testbuild/libtest.a
+[0m
+['/usr/bin/ar', 'rcs', 'libtest.a', 'test.f.3.o']
+[6/6] [33mfcprogram: build/.conf_check_1fe3b6a8c7710fefd9a0adc9b0e19d25/testbuild/main.c.4.o -> build/.conf_check_1fe3b6a8c7710fefd9a0adc9b0e19d25/testbuild/app
+[0m
+['/usr/bin/gfortran', 'main.c.4.o', '-o', 'app', '-Wl,-Bstatic', '-L/home/vserret/software/cppLyA/build/.conf_check_1fe3b6a8c7710fefd9a0adc9b0e19d25/testbuild', '-ltest', '-Wl,-Bdynamic']
+ok ('_', '', 'lower-case')
+------------------------------------------
+checking for lapack
+==>
+
+int main() {
+	return 0;
+}
+
+<==
+[1/2] [32mc: build/.conf_check_d1d7bd3f5779b4f5a72765718ed895d4/test.c -> build/.conf_check_d1d7bd3f5779b4f5a72765718ed895d4/testbuild/test.c.0.o
+[0m
+['/usr/bin/gcc', '-fPIC', '-DPIC', '../test.c', '-c', '-o', 'test.c.0.o']
+[2/2] [33mcprogram: build/.conf_check_d1d7bd3f5779b4f5a72765718ed895d4/testbuild/test.c.0.o -> build/.conf_check_d1d7bd3f5779b4f5a72765718ed895d4/testbuild/testprog
+[0m
+['/usr/bin/gcc', 'test.c.0.o', '-o', '/home/vserret/software/cppLyA/build/.conf_check_d1d7bd3f5779b4f5a72765718ed895d4/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-llapack']
+yes
+------------------------------------------
+Checking for program pkg-config
+/usr/bin/pkg-config
+find program=['pkg-config'] paths=['/home/frogshome/bin', '/home/vserret/software/busca_pyLyA/bin', '/home/vserret/software/pyLyA/fit/bin', '/home/guy/software/baofit/bin', '/home/vserret/software/baoutil/bin', '/home/vserret/software/baocorr/bin', '/home/vserret/software/baocorr/py', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games'] var='PKG_CONFIG' -> '/usr/bin/pkg-config'
+------------------------------------------
+Checking for program pkg-config
+/usr/bin/pkg-config
+find program=['pkg-config'] paths=['/home/frogshome/bin', '/home/vserret/software/busca_pyLyA/bin', '/home/vserret/software/pyLyA/fit/bin', '/home/guy/software/baofit/bin', '/home/vserret/software/baoutil/bin', '/home/vserret/software/baocorr/bin', '/home/vserret/software/baocorr/py', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games'] var='PKGCONFIG' -> '/usr/bin/pkg-config'
+------------------------------------------
+Checking for 'cfitsio-3.280'
+['/usr/bin/pkg-config', 'cfitsio-3.280', '--cflags', '--libs']
+out: -I/home/guy/software/DESI/cfitsio/include  -L/home/guy/software/DESI/cfitsio/lib -lcfitsio  
+
+yes

@@ -1,0 +1,15 @@
+# -*- mode: python; -*- 
+from waflib import Context
+
+def build(bld):
+    
+    for src in bld.path.ant_glob( '*.cc' ) :
+        prog = bld.program(
+            source   = str(src),
+            target   = str(src).replace('.cc', ''),
+            includes = ['.', '../src', '..'],
+            use      = ['baolib', 'LAPACK', 'CFITSIO'],
+            linkflags = ['-fopenmp','-lgomp'], # THIS SHOULD BE SET AUTMATICALLY BY LINKFLAGS
+            vnum     = Context.g_module.VERSION )
+        prog.rpath = [ bld.env['PREFIX'] + '/lib', bld.env.LIBPATH_CFITSIO[0] ]
+        

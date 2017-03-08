@@ -1,0 +1,10 @@
+prefix=@PREFIX@
+libdir=${prefix}/lib
+includedir=${prefix}/include/@APPNAME@-@VERSION@
+
+Name: @APPNAME@
+Description: @DESCRIPTION@
+Version: @VERSION@
+Libs: -L${libdir} @ALL_LIBS@
+Libs.private: -lm
+Cflags: -I${includedir}
