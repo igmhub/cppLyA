@@ -199,19 +199,4 @@ else:
     h.append(table_hdu)
     h.writeto(out_file,clobber=True)
 
-    print "subtract again mean vs wave"
-    sw=np.sum(ivar,axis=0)
-    swx=np.sum(ivar*delta_tilde,axis=0)
-    mean=swx/(sw+(sw==0))
-    delta_tilde -= mean*(ivar>0)
-
-    out_file='mean0_'+out_file
-    print 'writing '+out_file
-    dflux = pyfits.HDUList([pyfits.PrimaryHDU(delta_tilde)])
-    dflux.append(pyfits.ImageHDU(ivar, name = "IVAR"))
-    dflux.append(pyfits.ImageHDU(wave ,name="WAVELENGTH"))     
-    dflux.append(table_hdu)
-    dflux.writeto(out_file,clobber=True)
-
-
 print 'done' 
