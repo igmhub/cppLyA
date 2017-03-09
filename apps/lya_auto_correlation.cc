@@ -137,7 +137,7 @@ int main(int argc, char** argv) {
   int twod=true;
   map<int,Histo2d*> h_sum_wdd;
   map<int,Histo2d*> h_sum_w;
-  map<int,Histo2d*> h_sum_z;
+  //map<int,Histo2d*> h_sum_z;
   //map<int,Histo2d*> h_npair;
   for(size_t s=0;s<spectra.size();s++) {
     int plate=spectra[s].plate;
@@ -145,7 +145,7 @@ int main(int argc, char** argv) {
       if(twod) {
 	h_sum_wdd[plate] = new Histo2d(nbins1d,rmin,rmax,nbins1d,rmin,rmax);
 	h_sum_w[plate]   = new Histo2d(nbins1d,rmin,rmax,nbins1d,rmin,rmax);
-	h_sum_z[plate]   = new Histo2d(nbins1d,rmin,rmax,nbins1d,rmin,rmax);
+	//h_sum_z[plate]   = new Histo2d(nbins1d,rmin,rmax,nbins1d,rmin,rmax);
 	//h_npair[plate]   = new Histo2d(nbins1d,rmin,rmax,nbins1d,rmin,rmax);
       }
     }
@@ -186,7 +186,7 @@ int main(int argc, char** argv) {
     int plate_k=spec_k.plate;
     Histo2d* h_sum_wdd_plate = h_sum_wdd[plate_k];
     Histo2d* h_sum_w_plate = h_sum_w[plate_k];
-    Histo2d* h_sum_z_plate = h_sum_z[plate_k];   
+    //Histo2d* h_sum_z_plate = h_sum_z[plate_k];   
     //Histo2d* h_npair_plate = h_npair[plate_k];
 
     int spectro_k=0; if(spec_k.fiber>500) spectro_k=1;
@@ -229,7 +229,7 @@ int main(int argc, char** argv) {
 	if(wkk==0) continue;
 	const double& wfkk=wfk[ik];		
 	const double& dkk=dk[ik];
-	const double& zkk=(wave(ik)/lya_lambda -1.)/2.;	
+	//const double& zkk=(wave(ik)/lya_lambda -1.)/2.;	
 	
 	int ipb=max(wbegin[p],begin_for_index[ik]);
 	int ipe=min(wend[p],end_for_index[ik]);
@@ -239,7 +239,7 @@ int main(int argc, char** argv) {
 	  if(wpp==0) continue;
 	  const double& wfpp=wfp[ip];	  
 	  const double& dpp=dp[ip];
-	  const double& zpp=(wave(ip)/lya_lambda -1.)/2.;
+	  //const double& zpp=(wave(ip)/lya_lambda -1.)/2.;
 
 	  double rpar=fabs(dkk-dpp)*cos(angle/2.); // Busca's definition 
 	  if ((in_same_half_plate)&&(rpar<rstep)) continue;
@@ -250,7 +250,7 @@ int main(int argc, char** argv) {
 
 	  h_sum_wdd_plate->Fill(rpar,rperp,wfkk*wfpp);
 	  h_sum_w_plate->Fill(rpar,rperp,wkk*wpp);
-	  h_sum_z_plate->Fill(rpar,rperp,wkk*wpp*(zkk+zpp));	    
+	  //h_sum_z_plate->Fill(rpar,rperp,wkk*wpp*(zkk+zpp));	    
 	  //h_npair_plate->Fill(rpar,rperp,1);	    
 
 	} // end of loop on ip	  
@@ -258,8 +258,10 @@ int main(int argc, char** argv) {
     } // end of loop on p
   } // end of loop on k
   } // end of loop on cpu
+
   
-  save_lya_correlation_results_with_z(output_filename,h_sum_wdd,h_sum_w,h_sum_z);
+  save_lya_correlation_results(output_filename,h_sum_wdd,h_sum_w);
+  //save_lya_correlation_results_with_z(output_filename,h_sum_wdd,h_sum_w,h_sum_z);
   //save_lya_correlation_results_with_npair(output_filename,h_sum_wdd,h_sum_w,h_npair);   // We want to compute the number of pair per bin
 
   k_stop=clock();
