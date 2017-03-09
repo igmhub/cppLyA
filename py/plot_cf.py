@@ -6,11 +6,11 @@ import argparse
 import string
 import pyfits 
 
-from baoutil.io import read_baofit_data
-from baoutil.io import read_baofit_cov
-from baoutil.io import read_baofit_model
-from baoutil.wedge import compute_wedge
-from baoutil.wedge import compute_wedge_with_ivar
+from lya_io import read_baofit_data
+from lya_io import read_baofit_cov
+from lya_io import read_baofit_model
+from wedge import compute_wedge
+from wedge import compute_wedge_with_ivar
 
 plt.rcParams["font.family"]="serif"
 plt.rcParams["font.size"]=16.0

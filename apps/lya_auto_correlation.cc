@@ -99,7 +99,7 @@ int main(int argc, char** argv) {
   if(output_filename=="") {
     usage(argv[0]);
   } 
-  
+
   int ncpu = 1;
   char* OMP_NUM_THREADS = getenv("OMP_NUM_THREADS");
   if(OMP_NUM_THREADS) {
