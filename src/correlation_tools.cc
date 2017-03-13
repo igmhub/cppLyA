@@ -161,7 +161,7 @@ void multiply_flux_by_weight(std::vector<Spectrum>& spectra) {
   }
 }
 
-void save_lya_correlation_results(const string& filename, const map<int,Histo2d*>& h_sum_wdd, const map<int,Histo2d*>& h_sum_w,bool with_covmat) {
+void save_lya_correlation_results_fast(const string& filename, const map<int,Histo2d*>& h_sum_wdd, const map<int,Histo2d*>& h_sum_w,bool with_covmat) {
   cout << "computing results" << endl;
 
   map<int,Histo2d*>::const_iterator h_sum_wdd_it = h_sum_wdd.begin();
@@ -262,51 +262,75 @@ void save_lya_correlation_results(const string& filename, const map<int,Histo2d*
   cout << "npair = " << npair << endl; 
   cout << "done" << endl;
 }
-void save_lya_correlation_results_with_npair(const string& filename, const map<int,Histo2d*>& h_sum_wdd, const map<int,Histo2d*>& h_sum_w,const map<int,Histo2d*>& h_npair,bool with_covmat) {
+
+void save_lya_correlation_results(const string& filename, const map<int,Histo2d*>& h_sum_wdd, const map<int,Histo2d*>& h_sum_w,const map<int,Histo2d*>& h_sum_z, const map<int,Histo2d*>& h_sum_rp, const map<int,Histo2d*>& h_sum_rt, bool with_covmat) {
   cout << "computing results" << endl;
 
   map<int,Histo2d*>::const_iterator h_sum_wdd_it = h_sum_wdd.begin();
   map<int,Histo2d*>::const_iterator h_sum_w_it = h_sum_w.begin();
-  map<int,Histo2d*>::const_iterator h_npair_it = h_npair.begin();
+  map<int,Histo2d*>::const_iterator h_sum_z_it = h_sum_z.begin();
+  map<int,Histo2d*>::const_iterator h_sum_rp_it = h_sum_rp.begin();
+  map<int,Histo2d*>::const_iterator h_sum_rt_it = h_sum_rt.begin();
 
   int nplates = h_sum_wdd.size();
   int n2d = h_sum_wdd_it->second->nx * h_sum_wdd_it->second->ny;
 
   double swx[n2d];
   double sw[n2d]; 
-  double sn[n2d];
+  double sz[n2d];
+  double srp[n2d]; 
+  double srt[n2d];
+
+
   for(int i=0;i<n2d;i++) {
     swx[i]=0;
     sw[i]=0;
-    sn[i]=0;
+    sz[i]=0;
+    srp[i]=0;
+    srt[i]=0;
   }
   
-  for (;h_sum_wdd_it != h_sum_wdd.end(); h_sum_wdd_it ++, h_sum_w_it ++, h_npair_it ++) {
+  for (;h_sum_wdd_it != h_sum_wdd.end(); h_sum_wdd_it ++, h_sum_w_it ++,h_sum_z_it ++, h_sum_rp_it ++,h_sum_rt_it ++) {
     const double* w  = h_sum_w_it->second->data;
     const double* wx = h_sum_wdd_it->second->data;
-    const double* n_p = h_npair_it->second->data;
+    const double* z  = h_sum_z_it->second->data;
+    const double* rp = h_sum_rp_it->second->data;
+    const double* rt = h_sum_rt_it->second->data;
+
     for(int i=0;i<n2d;i++) {
       swx[i] += wx[i];
       sw[i]  += w[i];
-      sn[i]  += n_p[i];
+      sz[i]  += z[i];
+      srp[i] += rp[i];
+      srt[i] += rt[i];
     }
   }
   
   double mx[n2d];
+  double mz[n2d];
+  double mrp[n2d];
+  double mrt[n2d];
   for(int i=0;i<n2d;i++) {
     if(sw[i]>0){
-      mx[i] = swx[i]/sw[i];}
+      mx[i]  = swx[i]/sw[i];
+      mz[i]  = sz[i]/sw[i];
+      mrp[i] = srp[i]/sw[i];
+      mrt[i] = srt[i]/sw[i];}
     else {
-      mx[i] = 0;}
-  
+      mx[i]  = 0;
+      mz[i]  = 0;
+      mrp[i] = 0;
+      mrt[i] = 0;}
   }
   cout << "writing " << filename << endl;
   FILE *file = fopen(filename.c_str(),"w");
   
   for(int i=0;i<n2d;i++) {
-    fprintf(file,"%d %g %g %g \n",i ,mx[i], sw[i], sn[i]);
+
+    fprintf(file,"%d %g %g %g %g %g \n",i ,mx[i], sw[i], mz[i], mrp[i], mrt[i]);
   }
   fclose(file);
+  
   if (with_covmat) {
     cout << "computing covmat ..." << endl;
   
@@ -363,53 +387,51 @@ void save_lya_correlation_results_with_npair(const string& filename, const map<i
     
   }
   cout << "done" << endl;
-}  
+}
 
-void save_lya_correlation_results_with_z(const string& filename, const map<int,Histo2d*>& h_sum_wdd, const map<int,Histo2d*>& h_sum_w,const map<int,Histo2d*>& h_sum_z,bool with_covmat) {
+void save_lya_correlation_results_with_npair(const string& filename, const map<int,Histo2d*>& h_sum_wdd, const map<int,Histo2d*>& h_sum_w,const map<int,Histo2d*>& h_npair,bool with_covmat) {
   cout << "computing results" << endl;
 
   map<int,Histo2d*>::const_iterator h_sum_wdd_it = h_sum_wdd.begin();
   map<int,Histo2d*>::const_iterator h_sum_w_it = h_sum_w.begin();
-  map<int,Histo2d*>::const_iterator h_sum_z_it = h_sum_z.begin();
+  map<int,Histo2d*>::const_iterator h_npair_it = h_npair.begin();
 
   int nplates = h_sum_wdd.size();
   int n2d = h_sum_wdd_it->second->nx * h_sum_wdd_it->second->ny;
 
   double swx[n2d];
   double sw[n2d]; 
-  double sz[n2d];
+  double sn[n2d];
   for(int i=0;i<n2d;i++) {
     swx[i]=0;
     sw[i]=0;
-    sz[i]=0;
+    sn[i]=0;
   }
   
-  for (;h_sum_wdd_it != h_sum_wdd.end(); h_sum_wdd_it ++, h_sum_w_it ++, h_sum_z_it ++) {
+  for (;h_sum_wdd_it != h_sum_wdd.end(); h_sum_wdd_it ++, h_sum_w_it ++, h_npair_it ++) {
     const double* w  = h_sum_w_it->second->data;
     const double* wx = h_sum_wdd_it->second->data;
-    const double* z = h_sum_z_it->second->data;
+    const double* n_p = h_npair_it->second->data;
     for(int i=0;i<n2d;i++) {
       swx[i] += wx[i];
       sw[i]  += w[i];
-      sz[i]  += z[i];
+      sn[i]  += n_p[i];
     }
   }
   
   double mx[n2d];
-  double mz[n2d]; 
   for(int i=0;i<n2d;i++) {
     if(sw[i]>0){
-      mx[i] = swx[i]/sw[i];
-      mz[i] = sz[i]/sw[i];}
+      mx[i] = swx[i]/sw[i];}
     else {
-      mx[i] = 0;
-      mz[i] = 0;}
+      mx[i] = 0;}
+  
   }
   cout << "writing " << filename << endl;
   FILE *file = fopen(filename.c_str(),"w");
   
   for(int i=0;i<n2d;i++) {
-    fprintf(file,"%d %g %g %g \n",i ,mx[i], sw[i], mz[i]);
+    fprintf(file,"%d %g %g %g \n",i ,mx[i], sw[i], sn[i]);
   }
   fclose(file);
   if (with_covmat) {

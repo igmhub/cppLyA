@@ -137,20 +137,12 @@ int main(int argc, char** argv) {
   int twod=true;
   map<int,Histo2d*> h_sum_wdd;
   map<int,Histo2d*> h_sum_w;
-  map<int,Histo2d*> h_sum_z;
-  map<int,Histo2d*> h_sum_rp;
-  map<int,Histo2d*> h_sum_rt;
-  //map<int,Histo2d*> h_npair;
   for(size_t s=0;s<spectra.size();s++) {
     int plate=spectra[s].plate;
     if(h_sum_wdd.find(plate)==h_sum_wdd.end()) {
       if(twod) {
 	h_sum_wdd[plate] = new Histo2d(nbins1d,rmin,rmax,nbins1d,rmin,rmax);
 	h_sum_w[plate]   = new Histo2d(nbins1d,rmin,rmax,nbins1d,rmin,rmax);
-	h_sum_z[plate]   = new Histo2d(nbins1d,rmin,rmax,nbins1d,rmin,rmax);
-	h_sum_rp[plate]   = new Histo2d(nbins1d,rmin,rmax,nbins1d,rmin,rmax);
-	h_sum_rt[plate]   = new Histo2d(nbins1d,rmin,rmax,nbins1d,rmin,rmax);
-	//h_npair[plate]   = new Histo2d(nbins1d,rmin,rmax,nbins1d,rmin,rmax);
       }
     }
   }
@@ -190,10 +182,6 @@ int main(int argc, char** argv) {
     int plate_k=spec_k.plate;
     Histo2d* h_sum_wdd_plate = h_sum_wdd[plate_k];
     Histo2d* h_sum_w_plate = h_sum_w[plate_k];
-    Histo2d* h_sum_z_plate = h_sum_z[plate_k];   
-    Histo2d* h_sum_rp_plate = h_sum_rp[plate_k]; 
-    Histo2d* h_sum_rt_plate = h_sum_rt[plate_k]; 
-    //Histo2d* h_npair_plate = h_npair[plate_k];
 
     int spectro_k=0; if(spec_k.fiber>500) spectro_k=1;
 
@@ -235,7 +223,6 @@ int main(int argc, char** argv) {
 	if(wkk==0) continue;
 	const double& wfkk=wfk[ik];		
 	const double& dkk=dk[ik];
-	const double& zkk=(wave(ik)/lya_lambda -1.)/2.;	
 	
 	int ipb=max(wbegin[p],begin_for_index[ik]);
 	int ipe=min(wend[p],end_for_index[ik]);
@@ -254,15 +241,9 @@ int main(int argc, char** argv) {
 	  if (rperp>=rmax) continue; 
 
 	  const double& wfpp=wfp[ip];	  
-	  const double& zpp=(wave(ip)/lya_lambda -1.)/2.;
 
 	  h_sum_wdd_plate->Fill(rpar,rperp,wfkk*wfpp);
 	  h_sum_w_plate->Fill(rpar,rperp,wkk*wpp);
-	  h_sum_z_plate->Fill(rpar,rperp,wkk*wpp*(zkk+zpp));	
-	  h_sum_rp_plate->Fill(rpar,rperp,wkk*wpp*rpar);
-	  h_sum_rt_plate->Fill(rpar,rperp,wkk*wpp*rperp);
-	  //h_npair_plate->Fill(rpar,rperp,1);	    
-
 	} // end of loop on ip	  
       } // end of loop on ik 
     } // end of loop on p
@@ -270,9 +251,7 @@ int main(int argc, char** argv) {
   } // end of loop on cpu
 
   
-  //save_lya_correlation_results_fast(output_filename,h_sum_wdd,h_sum_w);
-  save_lya_correlation_results(output_filename,h_sum_wdd,h_sum_w,h_sum_z,h_sum_rp,h_sum_rt);
-  //save_lya_correlation_results_with_npair(output_filename,h_sum_wdd,h_sum_w,h_npair);   // We want to compute the number of pair per bin
+  save_lya_correlation_results_fast(output_filename,h_sum_wdd,h_sum_w);
 
   k_stop=clock();
   computation_time = float(k_stop-k_start) / CLOCKS_PER_SEC;

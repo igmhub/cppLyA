@@ -13,8 +13,8 @@ void check_nan(const std::vector<Spectrum>& spectra);
 void compute_valid_range(const std::vector<Spectrum>& spectra,int *& wbegin,int *& wend);
 void compute_indices_for_rmax(const Vect& dist, const double& rmax ,int *& begin_for_index,int *& end_for_index);
 void multiply_flux_by_weight(std::vector<Spectrum>& spectra);
-void save_lya_correlation_results(const string& filename, const map<int,Histo2d*>& h_sum_wdd, const map<int,Histo2d*>& h_sum_w,bool with_covmat=true);
-void save_lya_correlation_results_with_z(const string& filename, const map<int,Histo2d*>& h_sum_wdd, const map<int,Histo2d*>& h_sum_w,const map<int,Histo2d*>& h_sum_z,bool with_covmat=true);
+void save_lya_correlation_results_fast(const string& filename, const map<int,Histo2d*>& h_sum_wdd, const map<int,Histo2d*>& h_sum_w,bool with_covmat=true);
+void save_lya_correlation_results(const string& filename, const map<int,Histo2d*>& h_sum_wdd, const map<int,Histo2d*>& h_sum_w, const map<int,Histo2d*>& h_sum_z, const map<int,Histo2d*>& h_sum_rp, const map<int,Histo2d*>& h_sum_rt, bool with_covmat=true);
 void save_lya_correlation_results_with_npair(const string& filename, const map<int,Histo2d*>& h_sum_wdd, const map<int,Histo2d*>& h_sum_w, const map<int,Histo2d*>& h_npair,bool with_covmat=true);
 void save_cross_correlation_results(const string& filename, double r_perp_min,double r_par_min, double r_perp_max, double rstep,const map<int,Histo2d*>& h_sum_wdd, const map<int,Histo2d*>& h_sum_w,const map<int,Histo2d*>& h_sum_wz, bool with_covmat=true);
 #endif

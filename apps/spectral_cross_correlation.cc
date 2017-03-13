@@ -272,8 +272,8 @@ int main(int argc, char** argv) {
   } // end of loop on k
   } // end of loop on cpu
 
-  save_lya_correlation_results_with_z(output_filename,h_sum_wdd,h_sum_w,h_sum_z);
-  //save_lya_correlation_results(output_filename,h_sum_wdd,h_sum_w);
+  //save_lya_correlation_results_with_z(output_filename,h_sum_wdd,h_sum_w,h_sum_z);
+  save_lya_correlation_results_fast(output_filename,h_sum_wdd,h_sum_w);
   
   cout << "spectral_cross_correlation exit successfully" << endl;
   return 0;
