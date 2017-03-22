@@ -3,7 +3,7 @@
 #include <map>
 #include <qso_spectrum.h>
 #include <histo2d.h>
-
+#include <histo1d.h>
 class Vect;
 Vect compute_lya_distances(const Vect& wave,const string& line="lya");
 void compute_qso_distances(vector<QSO>& qsos);

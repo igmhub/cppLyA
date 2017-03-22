@@ -7,6 +7,7 @@
 #include <matvect.h>
 #include <correlation_tools.h>
 #include <histo2d.h>
+#include <histo1d.h>
 #include <fileutils.h>
 
 using namespace std;
@@ -262,6 +263,7 @@ void save_lya_correlation_results_fast(const string& filename, const map<int,His
   cout << "npair = " << npair << endl; 
   cout << "done" << endl;
 }
+
 
 void save_lya_correlation_results(const string& filename, const map<int,Histo2d*>& h_sum_wdd, const map<int,Histo2d*>& h_sum_w,const map<int,Histo2d*>& h_sum_z, const map<int,Histo2d*>& h_sum_rp, const map<int,Histo2d*>& h_sum_rt, bool with_covmat) {
   cout << "computing results" << endl;
