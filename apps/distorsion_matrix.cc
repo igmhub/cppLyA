@@ -267,7 +267,6 @@ int main(int argc, char** argv) {
   cout << "begin with loop ..." << endl; 
 
   /*
-
     delta_q' = dq' = dq - <dq> - l * <l dq> / <l**2>
     
     dq  == delta_q
@@ -290,19 +289,15 @@ int main(int argc, char** argv) {
 			
     swq=(sqj wqj)
     swl2q=(sqj wqj*lj**2)
-
     xabcd= dab*dcd
     
     
-
-
     dqi'*dpk' = dqi*dpk - (sqj wqj*(dqj*dpk))/swq - li*(sqj wqj*(dqj*dpk)*lj)/swl2q
                                         - (spm wpm*(dpm*dqi))/swp - lk*(spm wpm*((dpm*dqi)*lm)/swl2p
 					+ (sqj wqj*dqj)/swq*(spm wpm*dpm)/swp
 					+ li*(sqj wqj*dqj*lj)/swl2q*(spm wpm*dpm)/swp
 					+ lk*(spm wpm*dpm*lm)/swl2p*(sqj wqj*dqj)/swq
 					+ li*(sqj wqj*dqj*lj)/swl2q*lk*(spm wpm*dpm*lm)/swl2p
-
     dqi'*dpk' = dqi*dpk 
                                         - sqj (wqj/swq)*xqjpk
                                         - sqj (li*lj*wqj/swl2q)*xqjpk
@@ -312,15 +307,12 @@ int main(int argc, char** argv) {
 					+ sqj spm (wpm*wqj*li*lj/swl2q/swp) xqjpm
 					+ sqj spm (wpm*wqj*lk*lm/swl2p/swq) xqjpm
 					+ sqj spm (wpm*wqj*li*lj*lk*lm/swl2q/swl2p) xqjpm
-
     dqi'*dpk' = dqi*dpk 
                                         - sqj [ (wqj/swq)+(li*lj*wqj/swl2q) ]*xqjpk
                                         - spm [ (wpm/swp)+(lk*lm*wpm/swl2p) ]*xpmqi				    
 					+ sqj spm [ (wqj*wpm/swp/swq)+(wpm*wqj*li*lj/swl2q/swp)+(wpm*wqj*lk*lm/swl2p/swq)+(wpm*wqj*li*lj*lk*lm/swl2q/swl2p) ]*xqjpm
 					
     in code, need to fill histograms of wqi*wpk*dqi'*dpk' and wqi*wpk
-
-
     correlation function wo distortion
     
     1) find rp,rt bin A of qi,pk
@@ -330,7 +322,6 @@ int main(int argc, char** argv) {
     correlation function with distortion
     1) find rp,rt bin A of qi,pk and rp,rt bin B of qj,pm , fill distort_hww[A,B] += 
     2) fill distort_hww[A,B] += ....
-
    */
   
   const double* dq = dist1.Data(); 
@@ -679,5 +670,3 @@ int main(int argc, char** argv) {
   WD.writeFits(output_filename);
   cout << "done with distorsion_matrix. " << endl; 
 }
-
-   

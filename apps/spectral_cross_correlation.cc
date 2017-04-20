@@ -37,6 +37,8 @@ void usage(const string &pg) {
   cout << " -P (same half-plates)" << endl;
   cout << " -m # (mu min)" << endl;
   cout << " -W (wedges)" << endl;
+  cout << " -z zref (default 2.25)" << endl;
+  cout << " -a alpha (default 2.9)" << endl;  
   cout<<"spectral_cross_correlation computes the 2d auto or cross correlation function"<<endl; 
   exit(12);
 }
@@ -68,6 +70,8 @@ int main(int argc, char** argv) {
   bool same_half_plates=false;
 
   double mu_min=0.;
+  double zref=2.25; 
+  double alpha=2.9;
   
   if(argc<2) {
     usage(argv[0]);
@@ -93,6 +97,8 @@ int main(int argc, char** argv) {
       case 'P' : same_half_plates = true; break;
       case 'm' : mu_min = atof(argv[++i]); break;
       case 'W' : wedges = true; break;
+      case 'z' : zref = atof(argv[++i]); break;
+      case 'a' : alpha = atof(argv[++i]); break;
       default : usage(argv[0]); break;
       }
   }
@@ -170,11 +176,18 @@ int main(int argc, char** argv) {
   if(false) check_nan(spectra2);
   Vect dist1=compute_lya_distances(wave,line1);
   Vect dist2=compute_lya_distances(wave,line2);
-  
+
+  Vect Z1=compute_redshift(wave,line1);
+  multiply_weight_by_redshift_evolution(spectra1,zref,alpha,Z1);
+  Vect Z2=compute_redshift(wave,line2);
+  multiply_weight_by_redshift_evolution(spectra2,zref,alpha,Z2);
+ 
   compute_qso_directions(spectra1);
   compute_qso_directions(spectra2);
+
   multiply_flux_by_weight(spectra1);
   multiply_flux_by_weight(spectra2);
+
   int *wbegin1,*wend1; compute_valid_range(spectra1,wbegin1,wend1);
   int *wbegin2,*wend2; compute_valid_range(spectra2,wbegin2,wend2);  
   

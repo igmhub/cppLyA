@@ -15,6 +15,7 @@ def read_infile(infile):
     return dflux, ivar, wave, plate 
 
 def fill_histograms(spec): 
+    if spec%1000==0: print spec,' / ',nspec
     hww=np.zeros((nbins))
     hwwdd=np.zeros((nbins))
     wave_selection1=np.where(ivar1[spec]>0)[0]
@@ -26,6 +27,32 @@ def fill_histograms(spec):
             hww[ind]+=ivar1[spec][w1]*ivar2[spec][selec]
             hwwdd[ind]+=ivardelta1[spec][w1]*ivardelta2[spec][selec]
     return [hww,hwwdd]
+
+def comp_Rmax(forest1,forest2): 
+    if (forest1=='lya'): 
+        wmax1=1200.
+    else: 
+        wmax1=1016.
+
+    if (forest2=='lya'): 
+        wmin2=1040.
+    else: 
+        wmin2=973.
+
+    return wmax1/wmin2
+
+def comp_Rmin(forest1,forest2): 
+    if (forest1 == forest2): 
+        Rmin=1.
+    elif (forest1=='lya') and (forest2=='lyb'): 
+        wmin1=1040.
+        wmax2=1016.
+        Rmin= wmin1/wmax2
+    elif (forest1=='lyb') and (forest2=='lya'): 
+        wmin1=973.
+        wmax2=1200.
+        Rmin= wmin1/wmax2
+    return Rmin
 
 def save(): 
     print "writing %s"%out_file
@@ -74,6 +101,22 @@ if args.w2:
 else: 
     forest2='lya'
 
+if forest1 == 'lya': 
+    print 'forest1 : Lya '
+elif forest1 == 'lyb': 
+    print 'forest1 : Lyb '
+else: 
+    print 'problem ! forest1 = ',forest1
+    sys.exit(12)
+
+if forest2 == 'lya': 
+    print 'forest2 : Lya '
+elif forest2 == 'lyb': 
+    print 'forest2 : Lyb '
+else: 
+    print 'problem ! forest2 = ',forest2
+    sys.exit(12)
+
 if args.ncpu:
     ncpu=args.ncpu
 else: 
@@ -92,6 +135,11 @@ else:
     if (np.abs(wave1[0]-wave2[0])>0.001) : 
         print 'cannot handdle different grids'
         sys.exit(12)
+
+
+
+print 'wave1[0] = ', wave1[0],'wave1[-1] = ', wave1[-1]
+print 'wave2[0] = ', wave2[0],'wave2[-1] = ', wave2[-1]
 
 wave=wave1
 nw = dflux1.shape[1]
@@ -116,13 +164,13 @@ print 'nbins = ',nbins
 
 if args.Rmin: 
     Rmin=args.Rmin 
-else: 
-    Rmin=1.
+else:
+    Rmin=comp_Rmin(forest1,forest2)
 
 if args.Rmax: 
     Rmax=args.Rmax
 else: 
-    Rmax=1.07
+    Rmax=comp_Rmax(forest1,forest2)
 print 'Rmin = %2.2f , Rmax = %2.2f'%(Rmin,Rmax)
 
 Rbin=np.linspace(Rmin,Rmax,nbins)

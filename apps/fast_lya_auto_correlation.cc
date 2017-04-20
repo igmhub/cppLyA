@@ -36,6 +36,8 @@ void usage(const string &pg) {
   cout << " -P (same half-plates)" << endl;
   cout << " -m # (mu min)" << endl;
   cout << " -w (wedges)" << endl;
+  cout << " -z zref (default 2.25)" << endl;
+  cout << " -a alpha (default 2.9)" << endl;  
   exit(12);
 }
 #define _GNU_SOURCE 1
@@ -65,7 +67,9 @@ int main(int argc, char** argv) {
   bool same_half_plates=false;
 
   double mu_min=0.;
-  
+  double zref=2.25; 
+  double alpha=2.9; 
+
   if(argc<2) {
     usage(argv[0]);
   }
@@ -89,6 +93,8 @@ int main(int argc, char** argv) {
       case 'P' : same_half_plates = true; break;
       case 'm' : mu_min = atof(argv[++i]); break;
       case 'w' : wedges = true; break;
+      case 'z' : zref = atof(argv[++i]); break;
+      case 'a' : alpha = atof(argv[++i]); break;
       default : usage(argv[0]); break;
       }
   }
@@ -112,8 +118,6 @@ int main(int argc, char** argv) {
   vector<Spectrum> spectra;
   read_data(fits_filename,wave,spectra,format);
   
-  
-  
   GeneralCosmo cosmo(FIDUCIAL_OM,1.-FIDUCIAL_OM,-1.,0.);
   
   double rmin=0.;
@@ -122,10 +126,13 @@ int main(int argc, char** argv) {
   
   double deg2rad=M_PI/180.;
   double maxdist=rmax; // Mpc/h
-  double minz=wave(0)/lya_lambda-1;
+  
+  double minz=wave(0)/lya_lambda-1; 
   double min_da=CSPEED/H0*(cosmo.Da(minz)*(1+minz)); // Mpc/h
-  double max_angle=asin(maxdist/min_da);
-  double cos_max_angle=cos(maxdist/min_da);
+  double max_angle=2*asin(maxdist/(2.*min_da));
+  double cos_max_angle=cos(max_angle); 
+  //double max_angle=asin(maxdist/min_da);
+  //double cos_max_angle=cos(maxdist/min_da);
   int nbins1d=((rmax-rmin)/rstep);
   
   cout << "minimal redshift = " << minz << endl;
@@ -151,9 +158,13 @@ int main(int argc, char** argv) {
   Vect dist=compute_lya_distances(wave);
   int *begin_for_index,*end_for_index;
   compute_indices_for_rmax(dist,rmax,begin_for_index,end_for_index);
-  
+
+  Vect Z=compute_redshift(wave,"lya");
+  multiply_weight_by_redshift_evolution(spectra,zref,alpha,Z);
+
   compute_qso_directions(spectra);
-  multiply_flux_by_weight(spectra);
+  multiply_flux_by_weight(spectra); 
+  
   int *wbegin,*wend;
   compute_valid_range(spectra,wbegin,wend);
   

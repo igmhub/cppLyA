@@ -48,6 +48,24 @@ Vect compute_lya_distances(const Vect& wave,const string& line) {
   return dist;
 }
 
+Vect compute_redshift(const Vect& wave,const string& line) {
+  cout << "computing absorbers redshift assuming it is " << line << endl;
+
+  double rest_lambda=0;
+  if(line=="lya")
+    rest_lambda=lya_lambda;
+  else if(line=="lyb")
+    rest_lambda=lyb_lambda;
+  else {
+    cout << "don't know " << line << endl;
+    exit(12);
+  }
+  Vect Z(wave.size());
+  for(size_t i=0;i<wave.size();i++) {
+    Z(i)=wave(i)/rest_lambda-1;//sd.Value(wave(i)/rest_lambda-1);
+  }
+  return Z;
+}
 
 void compute_qso_distances(vector<QSO>& qsos) {
   cout << "computing distances" << endl;
@@ -158,6 +176,18 @@ void multiply_flux_by_weight(std::vector<Spectrum>& spectra) {
     const double *weight=spec_k.weight.Data();
     for(size_t i=0;i<spec_k.flux.size();i++)
       flux[i] *= weight[i];
+    if(k%10000==0) cout << "  done " << k << "/" << spectra.size() << endl;
+  }
+}
+
+void multiply_weight_by_redshift_evolution(std::vector<Spectrum>& spectra,const double& z_ref,const double& z_evol,const Vect& Z) {
+  cout << "multiply weight by redshift evolution ..." << endl;
+  for(size_t k=0;k<spectra.size();k++) {
+    Spectrum& spec_k = spectra[k];
+    if(!spec_k.valid) continue;
+    double *weight=spec_k.weight.NonConstData();
+    for(size_t i=0;i<spec_k.weight.size();i++)
+      weight[i] *= pow( (1.+Z(i))/(1.+z_ref), z_evol-1.);
     if(k%10000==0) cout << "  done " << k << "/" << spectra.size() << endl;
   }
 }
